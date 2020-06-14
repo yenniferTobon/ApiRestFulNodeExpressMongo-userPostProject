@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const config = require('../configs/config');
-const authException = require('../exceptions/notAuthentication');
+const authException = require('../exceptions/errorMiddleware');
 
 module.exports = (req, res, next) => {
     const token = req.headers['authorization'];
@@ -11,9 +11,10 @@ module.exports = (req, res, next) => {
     if (token) {
         jwt.verify(token, config.SECRET, (err, DecToken) => {
             if (err) {
-                throw new authException('Login');
+                throw new authException('Login', 'NotAuthException', 401);
             }
             req.user = DecToken.user;
+            req.email = DecToken.email;
         });
     }
     next();
