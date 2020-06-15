@@ -28,7 +28,8 @@ mongoose
     .connect(connectionString, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify: true
+        useFindAndModify: true,
+        useFindAndModify: false
     })
     .then(
         () => {

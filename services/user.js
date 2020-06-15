@@ -7,6 +7,7 @@ const ReqFieldException = require('../exceptions/errorMiddleware');
 //const notAuthentication = require("../exceptions/notAuthentication");
 const userNotExistException = require('../exceptions/errorMiddleware');
 const invalidPasswordException = require('../exceptions/errorMiddleware');
+const emailNotAvailable = require('../exceptions/errorMiddleware');
 const userservice = require('./user');
 
 exports.createUser = async (user) => {
@@ -16,12 +17,16 @@ exports.createUser = async (user) => {
     let usernameExist = await userModel.findOne({ username: user.username });
     // validate
     if (usernameExist) {
-        let msgError = 'username' + user.username + 'already exists';
+        let msgError = 'username ' + user.username + ' already exists';
         throw new usernameNotAvailable(msgError, 'usernameNotAvailable', 401);
     }
-
+    let emailExist = await userModel.findOne({ email: user.email });
+    // validate
+    if (emailExist) {
+        let msgError = 'email ' + user.email + ' already exists';
+        throw new emailNotAvailable(msgError, 'emailNotAvailable', 401);
+    }
     const userEncrypt = await userservice.encryptPassword(user);
-
     return await userModel.create(userEncrypt);
 };
 
@@ -45,7 +50,7 @@ exports.signIn = async (usrname, pass) => {
         { user: userExist._id, email: userExist.email },
         config.SECRET,
         {
-            expiresIn: 10000
+            expiresIn: '1h'
         }
     );
     return token;

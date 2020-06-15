@@ -1,14 +1,18 @@
 module.exports = errorHandler;
 function errorHandler(err, req, res, next) {
     const status = err.status;
-
     if (
         err.name === 'usernameNotAvailable' ||
         err.name === 'usernameNotExist' ||
         err.name === 'invalidPassword' ||
         err.name === 'requiredField' ||
         err.name === 'notAuthentication' ||
-        err.name === 'bookExistsException'
+        err.name === 'bookExistsException' ||
+        err.name === 'emailNotAvailable' ||
+        err.name === 'invalidEmail' ||
+        err.name === 'postNotExist' ||
+        err.name === 'authorizedUser' ||
+        err.name === 'failedAuthenticate'
     ) {
         return res.status(status).send({
             status: status,

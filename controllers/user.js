@@ -1,6 +1,7 @@
 const serviceUser = require('../services/user');
 const ReqFieldException = require('../exceptions/errorMiddleware');
 //const userNotExistException = require("../exceptions/errorMiddleware");
+const invalidEmail = require('../exceptions/errorMiddleware');
 
 exports.signUp = async (req, res) => {
     if (!req.body.username) {
@@ -8,6 +9,9 @@ exports.signUp = async (req, res) => {
     }
     if (!req.body.email) {
         throw new ReqFieldException('Email field', 'requiredField', 404);
+    }
+    if (!/.+\@.+\..+/.test(req.body.email)) {
+        throw new invalidEmail('invalid email', 'invalidEmail', 412);
     }
     if (!req.body.password) {
         throw new ReqFieldException('Password field', 'requiredField', 404);

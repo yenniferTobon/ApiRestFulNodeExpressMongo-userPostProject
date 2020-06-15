@@ -1,9 +1,9 @@
 //const authentication = require("./autheRouters.js");
-const userAll = require("./apis/user");
-//const libroAll = require("./bookRouters");
+const userAll = require('./apis/user');
+const postAll = require('./apis/post');
 
-module.exports = router => {
-	//authentication(router);
-	userAll(router);
-	//libroAll(router);
+module.exports = (router) => {
+    //authentication(router);
+    userAll(router);
+    postAll(router);
 };
