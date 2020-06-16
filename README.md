@@ -54,5 +54,5 @@ npm install
 
 [Yennifer Tobon](https://www.linkedin.com/in/yennifertobon25/) 
 [:octocat:](https://github.com/yenniferTobon)
-(https://twitter.com/TobonYennifer)
+[twitter](https://twitter.com/TobonYennifer)
 
