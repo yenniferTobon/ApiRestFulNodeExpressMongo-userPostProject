@@ -1,10 +1,10 @@
 # Prueba Practica - JULIUS
 
-# API RESTFUL con Node.js y express.js
+# API RESTFUL con Node.js y Express
 
-### Description
+### Descripción
 
-En este proyecto de BackEnd se realizó la construcción de APis RESTFUL para usuarios y post. La ruta base siempre será <host/api/rutasDescritas>, si se va a consumir las diferentes apis desde una herramienta que simule peticiones HTTP REST, tal como postman,se debe tener en cuenta que para las rutas que tienen como prerrequisitos estar autenticadas se debe colocar en el Headers, la <Key: Authorization>, y dentor de esta en en campo de <value> se deberá poner el token que se obtiene cuando se inicia sesion, hay que recordar que este toquen tiene una vigencia de una hora.
+En este proyecto de BackEnd se realizó la construcción de APis RESTFUL para usuarios y post. La ruta base siempre será *<host/api/rutasDescritas>*, si se va a consumir las diferentes apis desde una herramienta que simule peticiones HTTP REST, tal como postman,se debe tener en cuenta que para las rutas que tienen como prerrequisitos estar autenticadas se debe colocar en el Headers, la <Key: Authorization>, y dentro de esta en en campo de <value> se deberá poner el token que se obtiene cuando se inicia sesion, hay que recordar que este toquen tiene una vigencia de una hora.
 Para correr el proyecto localmente se debe de crear un archivo llamado .env que tenga los siguientes nombres para las variables pero su valor se puede cambiar.
 
 #### Archivo .env
