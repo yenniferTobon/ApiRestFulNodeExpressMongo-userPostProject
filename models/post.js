@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema; //constructor the mongoose
+const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
     title: { type: String, required: true },
@@ -12,4 +12,4 @@ const PostSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('post', PostSchema); //mongoose model method to export it
+module.exports = mongoose.model('post', PostSchema);

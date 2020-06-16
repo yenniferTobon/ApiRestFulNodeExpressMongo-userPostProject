@@ -1,6 +1,5 @@
 const serviceUser = require('../services/user');
 const ReqFieldException = require('../exceptions/errorMiddleware');
-//const userNotExistException = require("../exceptions/errorMiddleware");
 const invalidEmail = require('../exceptions/errorMiddleware');
 
 exports.signUp = async (req, res) => {

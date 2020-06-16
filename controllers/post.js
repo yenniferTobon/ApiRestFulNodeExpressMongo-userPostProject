@@ -1,5 +1,4 @@
 const servicePost = require('../services/post');
-//const postExistsException = require('../exceptions/authentication');
 
 exports.createPost = async (req, res) => {
     const post = await servicePost.createOnePost(req.body, req.user);

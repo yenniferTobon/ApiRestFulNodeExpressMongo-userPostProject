@@ -7,9 +7,6 @@ module.exports = (req, res, next) => {
     if (!token) {
         throw new authException('Login', 'failedAuthenticate', 400);
     }
-    /*if (!token && req.route.path != '/libro/:libroId' && method == 'GET') {
-        throw new authException('Error, usuario no autorizado');
-    }*/
 
     if (token) {
         jwt.verify(token, config.SECRET, (err, DecToken) => {

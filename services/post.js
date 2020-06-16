@@ -1,13 +1,16 @@
-const postModel = require('../models/post');
-//const bookExistsException = require('../exceptions/bookExistsException');
-const postService = require('./post');
-const userModel = require('../models/user');
-const postNotExistException = require('../exceptions/errorMiddleware');
-const authorizedUserException = require('../exceptions/errorMiddleware');
-//const serviceUser = require('../services/userServices');
+const postModel = require('../models/post'),
+    postService = require('./post'),
+    postNotExistException = require('../exceptions/errorMiddleware'),
+    authorizedUserException = require('../exceptions/errorMiddleware'),
+    config = require('../configs/config.js'),
+    images = require('./images.js');
 
 exports.createOnePost = async (post, idUser) => {
     post.author = idUser;
+    const filePath = config.pathImage + post.image;
+    const fileName = filePath.split('/')[filePath.split('/').length - 1];
+    const urlImageS3 = await images.cargarImagen(filePath, fileName);
+    post.image = urlImageS3;
     const newPost = await postModel.create(post);
     return newPost;
 };
@@ -39,8 +42,6 @@ exports.removePostToId = async (idPost, idUser) => {
         );
     }
     const removePostPatch = await postModel.findByIdAndRemove(idPost);
-
-    console.log(removePostPatch);
     return removePostPatch;
 };
 

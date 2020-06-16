@@ -1,10 +1,9 @@
 const userModel = require('../models/user');
 const jwt = require('jsonwebtoken');
 const config = require('../configs/config');
-const bcrypt = require('bcrypt'); //to encrypt passwords
+const bcrypt = require('bcrypt');
 const usernameNotAvailable = require('../exceptions/errorMiddleware');
 const ReqFieldException = require('../exceptions/errorMiddleware');
-//const notAuthentication = require("../exceptions/notAuthentication");
 const userNotExistException = require('../exceptions/errorMiddleware');
 const invalidPasswordException = require('../exceptions/errorMiddleware');
 const emailNotAvailable = require('../exceptions/errorMiddleware');

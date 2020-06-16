@@ -7,12 +7,4 @@ module.exports = (router) => {
     router.route('/post/:postId').get(authMiddle, contPost.getPostId);
     router.route('/post/:postId').delete(authMiddle, contPost.removePostId);
     router.route('/postSearch').get(authMiddle, contPost.getPostSearch);
-    /*router.route('/post/:libroId').patch(authMiddle, contBook.patchPostId);
-    router.route('/post/:libroId').delete(authMiddle, contBook.removePostId);
-    router
-        .route('/post/addfavorite/:libroId')
-        .post(authMiddle, contBook.addFavorite);
-    router
-        .route('/libro/rmfavorite/:libroId')
-        .post(authMiddle, contBook.deleteFavorite);*/
 };
