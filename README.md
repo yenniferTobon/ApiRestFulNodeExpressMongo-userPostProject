@@ -9,17 +9,17 @@ Para correr el proyecto localmente se debe de crear un archivo llamado .env que 
 
 #### Archivo .env
 
-| Nombre de la variable | valor                                    |
-| --------------------- | ---------------------------------------- |
-| PORT_BD               | Puerto por el cual se establece conexión a la BD                                    |
-| NAME_BD               | userPostApp                              |
-| IP_BD                 | 127.0.0.1                                |
-| PORT_APP              | 3000                                     |
-| SECRET                | Qw1?Df3&Vb7%                             |
-| AWSAccessKeyId        | AKIAJGQ5YFTZG4VIVXIA                     |
-| AWSAccessKeyId        | khZlFag8hHhJk3pPhgF65Gc5v+sueG92ob5oZ0OB |
-| bucketName            | juliusymty                               |
-| pathImage             | /home/yenn25/images/                     |
+| Nombre de la variable | valor                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------|
+| PORT_BD               | Puerto por el cual se establece conexión a la BD                                        |
+| NAME_BD               | Nombre de la instancia de BD                                                            |
+| IP_BD                 | IP del servidor que aloja la BD                                                         |
+| PORT_APP              | Puerto por el cual corre la aplicación                                                  |
+| SECRET                | Clave secreta para encriptar/descifrar Token                                            |
+| AWSAccessKeyId        | Llave publica de acceso a AWS. En este link puedes consultar como obtener este campo    |
+| AWSAccessKeyId        | Llave secreta de acceso a AWS. En este link puedes consultar como obtener este campo    |
+| bucketName            | Nombre del Bucket S3 que creaste en AWS. En este link puedes consultar como crear un S3 |
+| pathImage             | Ruta fisica de donde se almacenan las imagenes para subir al S3                         |
 
 ## Rutas.
 
