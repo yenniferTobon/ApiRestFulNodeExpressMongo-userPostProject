@@ -4,7 +4,7 @@
 
 ### Descripción
 
-En este proyecto de BackEnd se realizó la construcción de APis RESTFUL para usuarios y post. La ruta base siempre será *<host/api/rutasDescritas>*, si se va a consumir las diferentes apis desde una herramienta que simule peticiones HTTP REST, tal como postman,se debe tener en cuenta que para las rutas que tienen como prerrequisitos estar autenticadas se debe colocar en el Headers, la <Key: Authorization>, y dentro de esta en en campo de <value> se deberá poner el token que se obtiene cuando se inicia sesion, hay que recordar que este toquen tiene una vigencia de una hora.
+En este proyecto de BackEnd se realizó la construcción de APis RESTFUL para usuarios y post. La ruta base siempre será *<host/api/rutasDescritas>*, si se va a consumir las diferentes apis desde una herramienta que simule peticiones HTTP REST, tal como postman,se debe tener en cuenta que para las rutas que tienen como prerrequisitos estar autenticadas se debe colocar en el Headers, la *<Key: Authorization>*, y dentro de esta en en campo de <value> se deberá poner el token que se obtiene cuando se inicia sesión, _*hay que recordar que este toquen tiene una vigencia de una hora*_.
 Para correr el proyecto localmente se debe de crear un archivo llamado .env que tenga los siguientes nombres para las variables pero su valor se puede cambiar.
 
 #### Archivo .env
@@ -19,9 +19,9 @@ Para correr el proyecto localmente se debe de crear un archivo llamado .env que 
 | AWSAccessKeyId        | Llave publica de acceso a AWS. En este [link](https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/) puedes consultar como obtener este campo    |
 | AWSAccessKeyId        | Llave secreta de acceso a AWS. En este [link](https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/) puedes consultar como obtener este campo    |
 | bucketName            | Nombre del Bucket S3 que creaste en AWS. En este [link](https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/) puedes consultar como crear un S3 |
-| pathImage             | Ruta fisica de donde se almacenan las imagenes para subir al S3                         |
+| pathImage             | Ruta fisica de donde se almacenan las imágenes para subir al S3                         |
 
-Luego que realices la clonación del repositorio y hayas creado el archivo de ambientes debes instar los paquetes de dependencia que se requieren para la correcta ejecución del programa. Para eso se debe ejecutar el comando 
+Luego de realizar la clonación del repositorio y creado el archivo de ambientes, se debe instalar los paquetes de dependencia que se requieren para la correcta ejecución del programa. Para eso se debe ejecutar el comando
 
 ```
 npm install
@@ -31,7 +31,7 @@ npm install
 
 #### URL de las rutas creadas para el usuario.
 
-| Rutas                           | Descripcion                                                                                                                                                                                         |
+| Rutas                           | Descripción                                                                                                                                                                                         |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [/signup](0-subs.py)            | POST - Ruta para registrar usuarios, para registrase se necesita el username, email el cual debe de escribirse asi nombreDeUsuario@organizacion.tipo y la contraseña                                |
 | [/signin](1-top_ten.py)         | POST - Ruta para iniciar sesion, se debe estar registrado antes de intentar iniciar sesion y se necesita el username y la contraseña en caso de que estos datos sean validos se de volvera un token |
@@ -55,3 +55,5 @@ npm install
 [Yennifer Tobon](https://www.linkedin.com/in/yennifer-tobon-yate-13716294/) [:octocat:](https://github.com/yenniferTobon)
 
 [Twitter](https://twitter.com/TobonYennifer)
+
+[linkedin](https://www.linkedin.com/in/yennifertobon25/)
