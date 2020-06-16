@@ -48,12 +48,14 @@ exports.PostSearch = async (queryPost, idUser) => {
             .populate('author');
         return infoAllPost;
     }
-    const infoPost = await postModel.find({
-        $or: [
-            { title: { $regex: queryPost.search, $options: 'i' } },
-            { content: { $regex: queryPost.search, $options: 'i' } }
-        ],
-        $and: [{ author: idUser }]
-    });
+    const infoPost = await postModel
+        .find({
+            $or: [
+                { title: { $regex: queryPost.search, $options: 'i' } },
+                { content: { $regex: queryPost.search, $options: 'i' } }
+            ],
+            $and: [{ author: idUser }]
+        })
+        .populate('author');
     return infoPost;
 };
