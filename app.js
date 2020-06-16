@@ -22,15 +22,16 @@ app.use(cors({ origin: '*' }));
 app.use('/api', router); //only requests to /api/v1/* will be sent to our "router"
 app.use(errorMiddleware);
 
-const connectionString =
-    'mongodb://' + config.IP_BD + ':' + config.PORT_BD + '/' + config.NAME_BD;
 mongoose
-    .connect(connectionString, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: true,
-        useFindAndModify: false
-    })
+    .connect(
+        'mongodb + srv://admin:<Arbol1948.>@cluster0-rqi6g.mongodb.net/<userPostApp>?retryWrites=true&w=majority',
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: true,
+            useFindAndModify: false
+        }
+    )
     .then(
         () => {
             console.log('Database connection [OK]');
