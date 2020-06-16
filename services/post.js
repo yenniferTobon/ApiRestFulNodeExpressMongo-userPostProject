@@ -1,7 +1,7 @@
 const postModel = require('../models/post'),
     postService = require('./post'),
-    postNotExistException = require('../exceptions/errorMiddleware'),
-    authorizedUserException = require('../exceptions/errorMiddleware'),
+    postNotExist = require('../exceptions/errorMiddleware'),
+    authorizedUser = require('../exceptions/errorMiddleware'),
     config = require('../configs/config.js'),
     images = require('./images.js');
 
@@ -28,18 +28,14 @@ exports.getPostToId = async (idPost) => {
 exports.removePostToId = async (idPost, idUser) => {
     let postExist = await postService.getPostToId(idPost);
     if (!postExist) {
-        throw new postNotExistException('Post not found', 'postNotExist', 404);
+        throw new postNotExist('Post not found', 'postNotExist', 404);
     }
 
     const infoPost = await postModel.find({
         $and: [{ _id: idPost }, { author: idUser }]
     });
     if (infoPost.length === 0) {
-        throw new authorizedUserException(
-            'Not authorized user',
-            'authorizedUser',
-            404
-        );
+        throw new authorizedUser('Not authorized user', 'authorizedUser', 404);
     }
     const removePostPatch = await postModel.findByIdAndRemove(idPost);
     return removePostPatch;

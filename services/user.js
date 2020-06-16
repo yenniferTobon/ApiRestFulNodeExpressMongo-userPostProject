@@ -3,15 +3,15 @@ const jwt = require('jsonwebtoken');
 const config = require('../configs/config');
 const bcrypt = require('bcrypt');
 const usernameNotAvailable = require('../exceptions/errorMiddleware');
-const ReqFieldException = require('../exceptions/errorMiddleware');
-const userNotExistException = require('../exceptions/errorMiddleware');
-const invalidPasswordException = require('../exceptions/errorMiddleware');
+const requiredField = require('../exceptions/errorMiddleware');
+const userNotExist = require('../exceptions/errorMiddleware');
+const invalidPassword = require('../exceptions/errorMiddleware');
 const emailNotAvailable = require('../exceptions/errorMiddleware');
 const userservice = require('./user');
 
 exports.createUser = async (user) => {
     if (!user) {
-        throw new ReqFieldException('user', 'requiredField', 404);
+        throw new requiredField('user', 'requiredField', 404);
     }
     let usernameExist = await userModel.findOne({ username: user.username });
     // validate
@@ -33,16 +33,12 @@ exports.signIn = async (usrname, pass) => {
     let userExist = await userModel.findOne({ username: usrname });
     if (!userExist) {
         let msgError = 'user ' + usrname + ' not found';
-        throw new userNotExistException(msgError, 'usernameNotExist', 404);
+        throw new userNotExist(msgError, 'usernameNotExist', 404);
     }
 
     const validPassword = await bcrypt.compare(pass, userExist.password);
     if (!validPassword) {
-        throw new invalidPasswordException(
-            'Incorrect password',
-            'invalidPassword',
-            401
-        );
+        throw new invalidPassword('Incorrect password', 'invalidPassword', 401);
     }
     //return the token by the user id
     const token = jwt.sign(
@@ -62,23 +58,31 @@ exports.allUsr = async () => {
 
 exports.getUserToId = async (userId) => {
     if (!userId) {
-        throw new ReqFieldException('el Id');
+        throw new requiredField('id user is required', 'requiredField', 404);
     }
     let infoUser;
     try {
         infoUser = await userModel.findById(userId).select({ password: 0 });
     } catch (err) {
-        throw new NotAuthException('Id con estructura no Valida');
+        throw new userNotExist(
+            'Id with invalid structure',
+            'userNotExist',
+            404
+        );
     }
     return infoUser;
 };
 
 exports.patchUserToId = async (id, infoChange) => {
     if (!id) {
-        throw new ReqFieldException('el Id');
+        throw new requiredField('id user field', 'requiredField', 404);
     }
     if (!infoChange) {
-        throw new ReqFieldException('la informacion a modifica');
+        throw new requiredField(
+            'field to modify is required',
+            'requiredField',
+            404
+        );
     }
     const userEncrypt = await userservice.encryptPassword(infoChange);
     const infoUserResult = await userModel

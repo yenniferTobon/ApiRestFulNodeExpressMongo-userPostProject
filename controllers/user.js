@@ -1,6 +1,7 @@
 const serviceUser = require('../services/user');
-const ReqFieldException = require('../exceptions/errorMiddleware');
+const requiredField = require('../exceptions/errorMiddleware');
 const invalidEmail = require('../exceptions/errorMiddleware');
+const usernameNotExist = require('../exceptions/errorMiddleware');
 
 exports.signUp = async (req, res) => {
     if (!req.body.username) {
@@ -13,7 +14,7 @@ exports.signUp = async (req, res) => {
         throw new invalidEmail('invalid email', 'invalidEmail', 412);
     }
     if (!req.body.password) {
-        throw new ReqFieldException('Password field', 'requiredField', 404);
+        throw new requiredField('Password field', 'requiredField', 404);
     }
 
     const user = await (await serviceUser.createUser(req.body)).toJSON();
@@ -28,10 +29,10 @@ exports.signIn = async (req, res) => {
     const username = req.body.username;
     const pass = req.body.password;
     if (!username) {
-        throw new ReqFieldException('Username field', 'requiredField', 404);
+        throw new requiredField('Username field', 'requiredField', 404);
     }
     if (!pass) {
-        throw new ReqFieldException('Password field', 'requiredField', 404);
+        throw new requiredField('Password field', 'requiredField', 404);
     }
     const token = await serviceUser.signIn(username, pass);
     if (!token) {
@@ -52,8 +53,10 @@ exports.getAllUsers = async (req, res) => {
 exports.getUserId = async (req, res) => {
     let infoUserId = await serviceUser.getUserToId(req.params.userId);
     if (infoUserId === null) {
-        throw new userNotExistsException(
-            'el usuario con Id ' + req.params.userId
+        throw new usernameNotExist(
+            'user with Id ' + req.params.userId + 'not exists',
+            'usernameNotExist',
+            400
         );
     }
     res.status(201).send(infoUserId);
