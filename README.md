@@ -21,6 +21,12 @@ Para correr el proyecto localmente se debe de crear un archivo llamado .env que 
 | bucketName            | Nombre del Bucket S3 que creaste en AWS. En este [link](https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/) puedes consultar como crear un S3 |
 | pathImage             | Ruta fisica de donde se almacenan las imagenes para subir al S3                         |
 
+Luego que realices la clonación del repositorio y hayas creado el archivo de ambientes debes instar los paquetes de dependencia que se requieren para la correcta ejecución del programa. Para eso se debe ejecutar el comando 
+
+```
+npm install
+```
+
 ## Rutas.
 
 #### URL de las rutas creadas para el usuario.
