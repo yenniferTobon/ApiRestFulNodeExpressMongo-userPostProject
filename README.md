@@ -16,9 +16,9 @@ Para correr el proyecto localmente se debe de crear un archivo llamado .env que 
 | IP_BD                 | IP del servidor que aloja la BD                                                         |
 | PORT_APP              | Puerto por el cual corre la aplicación                                                  |
 | SECRET                | Clave secreta para encriptar/descifrar Token                                            |
-| AWSAccessKeyId        | Llave publica de acceso a AWS. En este link [a link](https://github.com/user/repo/blob/branch/other_file.md) puedes consultar como obtener este campo    |
-| AWSAccessKeyId        | Llave secreta de acceso a AWS. En este link puedes consultar como obtener este campo    |
-| bucketName            | Nombre del Bucket S3 que creaste en AWS. En este link puedes consultar como crear un S3 |
+| AWSAccessKeyId        | Llave publica de acceso a AWS. En este [link](https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/) puedes consultar como obtener este campo    |
+| AWSAccessKeyId        | Llave secreta de acceso a AWS. En este [link](https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/) puedes consultar como obtener este campo    |
+| bucketName            | Nombre del Bucket S3 que creaste en AWS. En este [link](https://stackabuse.com/uploading-files-to-aws-s3-with-node-js/) puedes consultar como crear un S3 |
 | pathImage             | Ruta fisica de donde se almacenan las imagenes para subir al S3                         |
 
 ## Rutas.
