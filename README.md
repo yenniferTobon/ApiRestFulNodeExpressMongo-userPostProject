@@ -4,14 +4,14 @@
 
 ### Description
 
-En este proyecto de BackEnd se realice la APis RESTFUL para usuarios y post, La ruta base siempre será host/api/rutasDescritas, si se va a consumir las apis desde postman para las rutas que necesiten estar autenticadas se debe colocar en el Headers, Key: Authorization, en value se pone el token que se obtiene cuando se inicia sesion, hay que recordar que este toquen tiene una vigencia de una hora.
-para correr el proyecto en localmente se debe de crear un archivo llamado .env que tenga los siguientes nombres para las variables pero su valor se puede cambiar.
+En este proyecto de BackEnd se realizó la construcción de APis RESTFUL para usuarios y post. La ruta base siempre será <host/api/rutasDescritas>, si se va a consumir las diferentes apis desde una herramienta que simule peticiones HTTP REST, tal como postman,se debe tener en cuenta que para las rutas que tienen como prerrequisitos estar autenticadas se debe colocar en el Headers, la <Key: Authorization>, y dentor de esta en en campo de <value> se deberá poner el token que se obtiene cuando se inicia sesion, hay que recordar que este toquen tiene una vigencia de una hora.
+Para correr el proyecto localmente se debe de crear un archivo llamado .env que tenga los siguientes nombres para las variables pero su valor se puede cambiar.
 
 #### Archivo .env
 
 | Nombre de la variable | valor                                    |
 | --------------------- | ---------------------------------------- |
-| PORT_BD               | 27017                                    |
+| PORT_BD               | Puerto por el cual se establece conexión a la BD                                    |
 | NAME_BD               | userPostApp                              |
 | IP_BD                 | 127.0.0.1                                |
 | PORT_APP              | 3000                                     |
