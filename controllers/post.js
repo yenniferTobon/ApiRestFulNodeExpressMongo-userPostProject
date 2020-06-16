@@ -28,3 +28,8 @@ exports.removePostId = async (req, res) => {
     );
     res.status(201).send(infoPostRemove);
 };
+
+exports.getPostSearch = async (req, res) => {
+    let infoPostSearch = await servicePost.PostSearch(req.query, req.user);
+    res.status(201).send(infoPostSearch);
+};

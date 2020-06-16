@@ -6,8 +6,8 @@ module.exports = (router) => {
     router.route('/post').get(authMiddle, contPost.getAllPosts);
     router.route('/post/:postId').get(authMiddle, contPost.getPostId);
     router.route('/post/:postId').delete(authMiddle, contPost.removePostId);
-    /*router.route('/post/:libroId').get(authMiddle, contBook.getPostId);
-    router.route('/post/:libroId').patch(authMiddle, contBook.patchPostId);
+    router.route('/postSearch').get(authMiddle, contPost.getPostSearch);
+    /*router.route('/post/:libroId').patch(authMiddle, contBook.patchPostId);
     router.route('/post/:libroId').delete(authMiddle, contBook.removePostId);
     router
         .route('/post/addfavorite/:libroId')

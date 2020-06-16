@@ -43,3 +43,20 @@ exports.removePostToId = async (idPost, idUser) => {
     console.log(removePostPatch);
     return removePostPatch;
 };
+
+exports.PostSearch = async (queryPost, idUser) => {
+    if (queryPost.search == null) {
+        const infoAllPost = await postModel
+            .find({ author: idUser })
+            .populate('author');
+        return infoAllPost;
+    }
+    const infoPost = await postModel.find({
+        $or: [
+            { title: { $regex: queryPost.search, $options: 'i' } },
+            { content: { $regex: queryPost.search, $options: 'i' } }
+        ],
+        $and: [{ author: idUser }]
+    });
+    return infoPost;
+};
