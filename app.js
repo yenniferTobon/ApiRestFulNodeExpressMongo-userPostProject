@@ -40,7 +40,8 @@ mongoose
             console.log('Error during connecting with database');
         }
     );
+app.set('port', process.env.PORT || 3000);
 
-app.listen(config.PORT_APP, function () {
-    console.log('listening by the port ' + config.PORT_APP);
+app.listen(app.get('port'), function () {
+    console.log(`listening by the port  ${app.get('port')}`);
 });
