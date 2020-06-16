@@ -52,8 +52,7 @@ npm install
 
 ## Author
 
-[Yennifer Tobon](https://www.linkedin.com/in/yennifer-tobon-yate-13716294/) [:octocat:](https://github.com/yenniferTobon)
+[Yennifer Tobon](https://www.linkedin.com/in/yennifertobon25/) [:octocat:](https://github.com/yenniferTobon)
 
-[Twitter](https://twitter.com/TobonYennifer)
+[:Twitter:](https://twitter.com/TobonYennifer)
 
-[linkedin](https://www.linkedin.com/in/yennifertobon25/)
